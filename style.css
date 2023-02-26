@@ -1,0 +1,25 @@
+body{
+    background-size: cover;
+}
+
+.header{
+    font-size: 37px;
+    width: 100%;
+    margin-top: 0px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.instructions{
+    font-size: 27px;
+    color: rgb(89, 0, 255);
+}
+
+.btn{
+    background-color: rgba(255, 0, 212, 0.759);
+}
+
+canvas{
+    background-color: blueviolet;
+    box-shadow: 5px 5px 5px grey;
+    border: 5px dotted blue;
+}
