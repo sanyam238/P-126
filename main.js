@@ -7,10 +7,11 @@ rightWristY = 0;
 status_leftWrist = "";
 status_rightWrist = "";
 leftWrist_score =0;
+right_wrist_score = 0;
 
 function preload(){
     song1 = loadSound("Imagine_Dragons_Enemy_from_the_series_Arcane_League_of_Legends__(thinkNews.com.ng).mp3");
-    song2 = loadSound("Imagine_Dragons_Bones_(thinkNews.com.ng).mp3");
+    song2 = loadSound("Warriors - Imagine Dragons (Audio).mp3");
 }
 
 function setup(){
@@ -39,6 +40,20 @@ function draw(){
             document.getElementById("song_name").innerHTML = "Enemy";
         }
     }
+    
+    fill("blue");
+    stroke("blue");
+    status_rightWrist = song2.isPlaying();
+
+   if(right_wrist_score >0.2){
+        circle(rightWristX,rightWristY,25);
+        status_rightWrist = song1.stop();
+        
+        if(status_rightWrist == false){
+            song2.play();
+            document.getElementById("song_name").innerHTML = "Warriors";
+        }
+    }
 }
 
 function modelReady(){
@@ -54,6 +69,7 @@ function gotPoses(results){
         
         rightWristX = results[0].pose.rightWrist.x;
        rightWristY = results[0].pose.rightWrist.y;
+       right_wrist_score = results[0].pose.keypoints[10].score
         console.log("Right wrist x = " + rightWristX + " right wrist y = " + rightWristY);
     }
 }
